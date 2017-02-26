@@ -104,6 +104,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     attemptLogin();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             });
 
@@ -409,7 +410,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     "Yes",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            finish();
+                            System.exit(0);
+                            LoginActivity.this.finish();
                         }
                     });
 
