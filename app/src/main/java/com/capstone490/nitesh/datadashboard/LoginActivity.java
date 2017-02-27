@@ -134,8 +134,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 @Override
                 public void onClick(View view) {
                     attemptLogin();
-                    Intent intent = new Intent(LoginActivity.this, Navigation_Drawer.class);
-                    startActivity(intent);
+
                 }
             });
 
@@ -236,8 +235,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            Intent intent = new Intent(LoginActivity.this, Navigation_Drawer.class);
+            startActivity(intent);
         }
     }
 
@@ -403,7 +402,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if ((keyCode == KeyEvent.KEYCODE_BACK))
         {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-            builder1.setMessage("Are you sure?");
+            builder1.setMessage("Exit Application?");
             builder1.setCancelable(true);
 
             builder1.setPositiveButton(
@@ -411,7 +410,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             System.exit(0);
-                            LoginActivity.this.finish();
+                            finish();
                         }
                     });
 

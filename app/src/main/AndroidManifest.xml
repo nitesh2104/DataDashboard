@@ -31,7 +31,8 @@
         <activity
             android:name=".Navigation_Drawer"
             android:label="@string/title_activity_navigation__drawer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".GraphActivity"></activity>
     </application>
 
 </manifest>
