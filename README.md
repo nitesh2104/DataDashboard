@@ -1,37 +1,30 @@
-## Welcome to GitHub Pages
+## Welcome to DataDashboard!
 
-You can use the [editor on GitHub](https://github.com/nitesh2104/DataDashboard/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+You can visit the site [DataDashboard Dashboard](https://nitesh2104.github.io/DataDashboard//) to view the official readme dashboard of the application.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+DataDashboard is a user level bluetooth application that displays real time line chart graphs from the data obtained via the Bluetooth Module.
 
-### Markdown
+The data is generated from the MCU that sends a hashmap containing the timestamp and the power obtained every regular interval.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The application also displays the amount of money saved from tracking solar panels.
+
+
+### Main Goal 
+
+To provide the user with the amount of money saved by using solar tracking panels.
+
 
 ```markdown
-Syntax highlighted code block
+The application follows the MVC structure, the folders are created under src/ directory
 
-# Header 1
-## Header 2
-### Header 3
+# src
+## Models
+### View
+#### Controller
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/nitesh2104/DataDashboard/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
+### TODO:
+1.Data analysis for the power obtained and calculation of money saved over a period of time will also be added.
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+For further help regarding the setup, please check out our [documentation](https://github.com/nitesh2104/DataDashboard) or [contact support](https://github.com/nitesh2104).
