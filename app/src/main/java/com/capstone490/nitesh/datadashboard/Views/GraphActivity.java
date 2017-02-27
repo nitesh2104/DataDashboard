@@ -1,9 +1,10 @@
-package com.capstone490.nitesh.datadashboard;
+package com.capstone490.nitesh.datadashboard.Views;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.capstone490.nitesh.datadashboard.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;

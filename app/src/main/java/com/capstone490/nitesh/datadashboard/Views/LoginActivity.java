@@ -1,9 +1,8 @@
-package com.capstone490.nitesh.datadashboard;
+package com.capstone490.nitesh.datadashboard.Views;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -33,7 +32,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.capstone490.nitesh.datadashboard.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +77,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (!mBluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+//            TODO: Add Onactivityresult to calculate the result code
+
             enableBtIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
 
             setContentView(R.layout.activity_login);

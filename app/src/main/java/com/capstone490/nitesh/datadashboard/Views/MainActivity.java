@@ -1,19 +1,13 @@
-package com.capstone490.nitesh.datadashboard;
+package com.capstone490.nitesh.datadashboard.Views;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 
+import com.capstone490.nitesh.datadashboard.R;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     LineChart lineChart;

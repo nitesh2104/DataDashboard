@@ -1,14 +1,11 @@
-package com.capstone490.nitesh.datadashboard;
+package com.capstone490.nitesh.datadashboard.Views;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.capstone490.nitesh.datadashboard.R;
 
 public class Navigation_Drawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -96,7 +95,7 @@ public class Navigation_Drawer extends AppCompatActivity
         {
 
             AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-            builder1.setMessage("Want to Logout?");
+            builder1.setMessage("Logout?");
             builder1.setCancelable(true);
 
             builder1.setPositiveButton(
