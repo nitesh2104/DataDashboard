@@ -55,6 +55,11 @@
             android:name=".Views.UserProfile"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_user_profile"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".Views.CombinedAnalytics"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_combined_analytics"
             android:theme="@style/FullscreenTheme"></activity>
     </application>
 

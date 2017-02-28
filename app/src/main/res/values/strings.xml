@@ -106,4 +106,6 @@
     <string name="title_activity_fixed_panel_graph">Fixed_panel_graph</string>
 
     <string name="title_activity_user_profile">UserProfile</string>
+
+    <string name="title_activity_combined_analytics">CombinedAnalytics</string>
 </resources>

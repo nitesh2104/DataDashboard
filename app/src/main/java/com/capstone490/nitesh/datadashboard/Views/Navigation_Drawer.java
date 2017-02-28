@@ -90,6 +90,11 @@ public class Navigation_Drawer extends AppCompatActivity
             Intent intent = new Intent(Navigation_Drawer.this, Fixed_panel_graph.class);
             startActivity(intent);
             finish();
+        } else if (id == R.id.data_analytics) {
+            Toast.makeText(getApplicationContext(),"Data Analytics", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Navigation_Drawer.this, CombinedAnalytics.class);
+            startActivity(intent);
+            finish();
         } else if (id == R.id.user_profile) {
             Toast.makeText(getApplicationContext(),"User Profile", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(Navigation_Drawer.this, UserProfile.class);
