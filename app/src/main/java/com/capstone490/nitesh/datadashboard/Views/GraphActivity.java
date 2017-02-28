@@ -14,40 +14,58 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import java.util.ArrayList;
 
 public class GraphActivity extends AppCompatActivity {
-    LineChart lineChart;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        runnableChart();
+                        createLineChart();
+                    }
+                });
+                try {
+                    Thread.sleep(600);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
 
+    public void createLineChart() {
         LineChart linechart = (LineChart) findViewById(R.id.graph);
         ArrayList<String> XAxis = new ArrayList<>();
         ArrayList<Entry> YAxisSin = new ArrayList<>();
         ArrayList<Entry> YAxisCos = new ArrayList<>();
 
         double x = 0;
-        int datapoints = 1000;
-
-        for(int i=0; i<datapoints; i++){
-            float sinfunc = Float.parseFloat(String.valueOf(Math.sin(x)));
-            float cosfunc = Float.parseFloat(String.valueOf(Math.cos(x)));
-            x = x + 0.1;
+        for (int i = 0; i < 1000; i++) {
+            float rotating_panel_data = (float) (Math.random()*75);
+            float fixed_panel_data = (float) (Math.random()*60);
+            x = x + 10;
 
             XAxis.add(i, String.valueOf(x));
-            YAxisSin.add(new Entry(sinfunc,i));
-            YAxisCos.add(new Entry(cosfunc,i));
+            YAxisSin.add(new Entry(rotating_panel_data, i));
+            YAxisCos.add(new Entry(fixed_panel_data, i));
         }
 
         String[] XAxes = new String[XAxis.size()];
-        for (int i=0; i< XAxis.size(); i++){
+        for (int i = 0; i < XAxis.size(); i++) {
             XAxes[i] = XAxis.get(i);
         }
         ArrayList<ILineDataSet> linedatasets = new ArrayList<>();
-        LineDataSet lineDataSet1 = new LineDataSet(YAxisSin,"Sin Function");
+        LineDataSet lineDataSet1 = new LineDataSet(YAxisSin, "Rotating Solar Panel Data");
         lineDataSet1.setDrawCircles(false);
         lineDataSet1.setColor(Color.BLUE);
 
-        LineDataSet lineDataSet2 = new LineDataSet(YAxisCos,"Cos Function");
+        LineDataSet lineDataSet2 = new LineDataSet(YAxisCos, "Fixed Solar Panel Data");
         lineDataSet2.setDrawCircles(false);
         lineDataSet2.setColor(Color.RED);
 
@@ -55,9 +73,8 @@ public class GraphActivity extends AppCompatActivity {
         linedatasets.add(lineDataSet2);
 
         linechart.setData(new LineData(XAxes, linedatasets));
-//        lineChart.setVisibleXRangeMaximum(65f);
-
-
-
+        linechart.setVisibleXRange(1,10);
+    }
+    private void runnableChart(){
     }
 }

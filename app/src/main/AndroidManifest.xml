@@ -17,6 +17,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Views.LoginActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,23 +33,30 @@
         <activity
             android:name=".Views.Navigation_Drawer"
             android:label="@string/title_activity_navigation__drawer"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Views.GraphActivity" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Views.GraphActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboardHidden"/>
         <activity
             android:name=".Views.Create_user"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_create_user"
-            android:theme="@style/FullscreenTheme" />
+            android:theme="@style/FullscreenTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Views.SettingsActivity"
-            android:label="@string/title_activity_settings" />
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Views.Rotating_panel_graph"
+            android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_rotating_panel_graph"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".Views.Fixed_panel_graph"
+            android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fixed_panel_graph"
             android:theme="@style/FullscreenTheme" />
