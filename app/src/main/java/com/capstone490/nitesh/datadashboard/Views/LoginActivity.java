@@ -32,6 +32,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.capstone490.nitesh.datadashboard.R;
 
@@ -53,13 +54,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
     /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "admin@example.com:hello", "bar@example.com:world"
-    };
-    /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
@@ -77,8 +71,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (!mBluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-//            TODO: Add Onactivityresult to calculate the result code
-
+            //TODO: Add Onactivityresult to calculate the result code
             enableBtIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
 
             setContentView(R.layout.activity_login);
@@ -104,7 +97,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 @Override
                 public void onClick(View view) {
                     attemptLogin();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, Navigation_Drawer.class);
                     startActivity(intent);
                     finish();
                 }
@@ -112,6 +105,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             mLoginFormView = findViewById(R.id.login_form);
             mProgressView = findViewById(R.id.login_progress);
+
+            Button register = (Button) findViewById(R.id.register_user);
+            register.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    Toast.makeText(getApplicationContext(), "Registration Page", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, create_user.class);
+                    startActivity(intent);
+                }
+            });
         }
         else {
             setContentView(R.layout.activity_login);
@@ -365,14 +369,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 return false;
-            }
-
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
             }
 
             // TODO: register the new account here.

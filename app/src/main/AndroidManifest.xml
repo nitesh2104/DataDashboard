@@ -32,7 +32,12 @@
             android:name=".Views.Navigation_Drawer"
             android:label="@string/title_activity_navigation__drawer"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Views.GraphActivity"></activity>
+        <activity android:name=".Views.GraphActivity" />
+        <activity
+            android:name=".Views.create_user"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_create_user"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>
