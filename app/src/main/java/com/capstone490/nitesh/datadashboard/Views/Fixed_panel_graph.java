@@ -1,11 +1,13 @@
 package com.capstone490.nitesh.datadashboard.Views;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -72,5 +74,14 @@ public class Fixed_panel_graph extends AppCompatActivity {
 
         linechart.setData(new LineData(XAxes, linedatasets));
         linechart.setVisibleXRange(1,10);
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)){
+            Intent intent = new Intent(getApplicationContext(), Navigation_Drawer.class);
+            startActivity(intent);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

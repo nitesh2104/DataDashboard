@@ -1,8 +1,12 @@
 package com.capstone490.nitesh.datadashboard.Views;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 
 import com.capstone490.nitesh.datadashboard.R;
 import com.github.mikephil.charting.charts.LineChart;
@@ -26,7 +30,6 @@ public class GraphActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        runnableChart();
                         createLineChart();
                     }
                 });
@@ -75,6 +78,13 @@ public class GraphActivity extends AppCompatActivity {
         linechart.setData(new LineData(XAxes, linedatasets));
         linechart.setVisibleXRange(1,10);
     }
-    private void runnableChart(){
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)){
+            Intent intent = new Intent(getApplicationContext(), Navigation_Drawer.class);
+            startActivity(intent);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
