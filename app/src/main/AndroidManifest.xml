@@ -37,7 +37,10 @@
             android:name=".Views.create_user"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_create_user"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".Views.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>
