@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.capstone490.nitesh.datadashboard.R;
 
@@ -76,12 +77,24 @@ public class Navigation_Drawer extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.power_graph) {
+            Toast.makeText(getApplicationContext(),"Combined Data Analytics", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(Navigation_Drawer.this, GraphActivity.class);
             startActivity(intent);
-        } else if (id == R.id.data_analytics) {
-
+        }else if (id == R.id.rotating_panel_graph) {
+            Toast.makeText(getApplicationContext(),"Rotating Panel Data Analytics", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(Navigation_Drawer.this, Rotating_panel_graph.class);
+            startActivity(intent);
+            finish();
+        } else if (id == R.id.fixed_panel_graph) {
+            Toast.makeText(getApplicationContext(),"Fixed Panel Data Analytics", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(Navigation_Drawer.this, Fixed_panel_graph.class);
+            startActivity(intent);
+            finish();
         } else if (id == R.id.user_profile) {
-
+            Toast.makeText(getApplicationContext(),"User Profile", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Navigation_Drawer.this, UserProfile.class);
+            startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

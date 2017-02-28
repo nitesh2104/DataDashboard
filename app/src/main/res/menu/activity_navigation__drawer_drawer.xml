@@ -5,7 +5,17 @@
         <item
             android:id="@+id/power_graph"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="View Graph" />
+            android:title="Combined Graph" />
+
+        <item
+            android:id="@+id/rotating_panel_graph"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Rotating Panel Graph" />
+
+        <item
+            android:id="@+id/fixed_panel_graph"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Fixed Panel Graph" />
         <item
             android:id="@+id/data_analytics"
             android:icon="@drawable/ic_menu_gallery"

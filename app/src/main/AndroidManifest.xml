@@ -34,13 +34,28 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Views.GraphActivity" />
         <activity
-            android:name=".Views.create_user"
+            android:name=".Views.Create_user"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_create_user"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".Views.SettingsActivity"
-            android:label="@string/title_activity_settings"></activity>
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".Views.Rotating_panel_graph"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_rotating_panel_graph"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".Views.Fixed_panel_graph"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fixed_panel_graph"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".Views.UserProfile"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_user_profile"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>
