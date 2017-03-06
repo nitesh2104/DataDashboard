@@ -46,7 +46,7 @@ public class Rotating_panel_graph extends AppCompatActivity {
     public void createLineChart() {
         LineChart linechart = (LineChart) findViewById(R.id.graph);
         ArrayList<String> XAxis = new ArrayList<>();
-        ArrayList<Entry> YAxisSin = new ArrayList<>();
+        ArrayList<Entry> YAxisPoints = new ArrayList<>();
 
         double x = 0;
         for (int i = 0; i < 1000; i++) {
@@ -54,7 +54,7 @@ public class Rotating_panel_graph extends AppCompatActivity {
             x = x + 10;
 
             XAxis.add(i, String.valueOf(x));
-            YAxisSin.add(new Entry(rotating_panel_data, i));
+            YAxisPoints.add(new Entry(rotating_panel_data, i));
         }
 
         String[] XAxes = new String[XAxis.size()];
@@ -62,7 +62,7 @@ public class Rotating_panel_graph extends AppCompatActivity {
             XAxes[i] = XAxis.get(i);
         }
         ArrayList<ILineDataSet> linedatasets = new ArrayList<>();
-        LineDataSet lineDataSet1 = new LineDataSet(YAxisSin, "Rotating Solar Panel Data");
+        LineDataSet lineDataSet1 = new LineDataSet(YAxisPoints, "Rotating Solar Panel Data");
         lineDataSet1.setDrawCircles(false);
         lineDataSet1.setColor(Color.BLUE);
 
@@ -75,6 +75,7 @@ public class Rotating_panel_graph extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
         if ((keyCode == KeyEvent.KEYCODE_BACK)){
+            finish();
             Intent intent = new Intent(getApplicationContext(), Navigation_Drawer.class);
             startActivity(intent);
         }

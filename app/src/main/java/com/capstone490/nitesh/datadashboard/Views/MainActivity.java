@@ -10,8 +10,6 @@ import com.capstone490.nitesh.datadashboard.R;
 import com.github.mikephil.charting.charts.LineChart;
 
 public class MainActivity extends AppCompatActivity {
-    LineChart lineChart;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

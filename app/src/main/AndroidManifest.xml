@@ -14,7 +14,7 @@
         android:icon="@mipmap/dashboard"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".Views.LoginActivity"
             android:screenOrientation="portrait"
@@ -42,8 +42,8 @@
             android:name=".Views.Create_user"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_create_user"
-            android:theme="@style/FullscreenTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Views.SettingsActivity"
             android:label="@string/title_activity_settings"

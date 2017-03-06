@@ -79,8 +79,10 @@ public class Fixed_panel_graph extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
         if ((keyCode == KeyEvent.KEYCODE_BACK)){
+            finish();
             Intent intent = new Intent(getApplicationContext(), Navigation_Drawer.class);
             startActivity(intent);
+
         }
         return super.onKeyDown(keyCode, event);
     }
