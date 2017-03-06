@@ -266,7 +266,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             cursor.close();
             return false;
         } else {
-            return email.length() > 1;
+            return email.length() > 4;
         }
     }
 

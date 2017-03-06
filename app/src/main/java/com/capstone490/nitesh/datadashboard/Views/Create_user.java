@@ -52,7 +52,7 @@ public class Create_user extends AppCompatActivity {
         create_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validate_user()){
+                if (validate_user() && validate_password()){
 
                     // Gets the data repository in write mode
                     SQLiteDatabase db = store_user.getWritableDatabase();
@@ -65,18 +65,16 @@ public class Create_user extends AppCompatActivity {
                     // Insert the new row, returning the primary key value of the new row
                     db.insert(StorePowerData.Attributes.TABLE_NAME, null, values);
 
-                    //Testing
-                    SQLiteDatabase checkdb = store_user.getReadableDatabase();
-                    String Query = "Select * from " + StorePowerData.Attributes.TABLE_NAME;
-                    Cursor cursor = checkdb.rawQuery(Query,null);
-                    if(cursor.getCount() <= 0){
-                        cursor.close();
-                        Toast.makeText(getApplicationContext(),"Not saved", Toast.LENGTH_LONG).show();
-                    }
-                    cursor.close();
                     Toast.makeText(getApplicationContext(),"Creating User, Wait!", Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(),"User saved", Toast.LENGTH_LONG).show();
-
+                    try {
+                        Thread.sleep(1000);
+                        finish();
+                        Intent intent = new Intent(Create_user.this, LoginActivity.class);
+                        startActivity(intent);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Please Enter Again!!!", Toast.LENGTH_SHORT).show();
@@ -88,9 +86,9 @@ public class Create_user extends AppCompatActivity {
     private boolean validate_user(){
         return username.length() > 4;
     }
-//    private boolean validate_password(){
-//        return Objects.equals(new_password.toString(), confirm_password.toString());
-//    }
+    private boolean validate_password(){
+        return Objects.equals(new_password.getText().toString(), confirm_password.getText().toString());
+    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
