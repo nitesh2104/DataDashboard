@@ -46,14 +46,14 @@
                 android:layout_height="96dp"
                 android:layout_marginTop="-48dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/background2"
+                android:src="@drawable/user"
                 android:elevation="8dp"
                 app:border_width="2dp"
                 app:border_color="#FFF"
                 app:layout_scrollFlags="scroll"/>
             ​
             <android.support.v7.widget.Toolbar
-                android:id="@+id/materialup.toolbar"
+                android:id="@+id/content_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="?attr/actionBarSize"
@@ -75,7 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                    android:text="Saúl Molinero"/>
+                    android:text="Welcome User"/>
                 ​
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="4dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
-                    android:text="Here I am with a subtitle"
+                    android:text="Use Navigation Bar to View Data"
                     android:textColor="@android:color/white"/>
                 ​
             </LinearLayout>
