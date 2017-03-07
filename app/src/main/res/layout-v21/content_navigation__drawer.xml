@@ -60,8 +60,18 @@
                 android:background="?colorPrimary"
                 android:layout_marginTop="-48dp"
                 app:theme="@style/ThemeOverlay.AppCompat.Light"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
-                style="@style/ToolBarWithNavigationBack"/>
+                app:layout_scrollFlags="scroll|enterAlways|snap">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/logout_floating_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:elevation="8dp"
+                    android:layout_gravity="bottom|left|start"
+                    app:srcCompat="@drawable/ic_menu_back"
+                    android:clickable="true"/>
+
+                </android.support.v7.widget.Toolbar>
             ​
             <LinearLayout
                 android:id="@+id/materialup.title_container"
