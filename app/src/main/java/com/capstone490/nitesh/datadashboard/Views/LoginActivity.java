@@ -5,6 +5,8 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -27,6 +29,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -37,6 +40,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +49,7 @@ import com.capstone490.nitesh.datadashboard.R;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import Models.StorePowerData;
 
@@ -62,8 +67,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     private static final int REQUEST_READ_CONTACTS = 0;
     private final static int REQUEST_ENABLE_BT = 1;
+    private ListView listView;
+    private ArrayList<String> mDeviceList = new ArrayList<>();
     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-    private StorePowerData store_user;
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -84,10 +90,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (!mBluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-            enableBtIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
+
         }
         else if (mBluetoothAdapter.isEnabled()){
-        setupactivity();
+            setupactivity();
         }
         else {
             finish();
@@ -101,15 +107,29 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (requestCode == REQUEST_ENABLE_BT) {
             // Make sure the request was successful
             if (resultCode == RESULT_OK) {
+                mBluetoothAdapter.startDiscovery();
+                IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+                registerReceiver(mReceiver, filter);
                 setupactivity();
             } else {
                 finish();
                 System.exit(0);
             }
         }
-
     }
-
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+                BluetoothDevice device = intent
+                        .getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                mDeviceList.add(device.getName() + "\n" + device.getAddress());
+                Log.i("BT", device.getName() + "\n" + device.getAddress());
+                listView.setAdapter(new ArrayAdapter<>(context,
+                        android.R.layout.simple_list_item_1, mDeviceList));
+            }
+        }
+    };
     private void setupactivity() {
         setContentView(R.layout.activity_login);
 
@@ -195,7 +215,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
-
     /**
      * Attempts to sign in or register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the
@@ -216,13 +235,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         boolean cancel = false;
         View focusView = null;
-
-        // Check for a valid password, if the user entered one.
-//        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-//            mPasswordView.setError(getString(R.string.error_invalid_password));
-//            focusView = mPasswordView;
-//            cancel = true;
-//        }
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
@@ -252,12 +264,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             finish();
             Intent intent = new Intent(LoginActivity.this, Navigation_Drawer.class);
+            intent.putExtra("Username",mEmailView.getText().toString());
             startActivity(intent);
         }
     }
 
     private boolean isEmailValid(String email) {
-        store_user = new StorePowerData(this);
+        StorePowerData store_user = new StorePowerData(this);
         SQLiteDatabase check_user = store_user.getReadableDatabase();
         String Query = "Select * from " +
                 StorePowerData.Attributes.TABLE_NAME + " where " +
@@ -425,8 +438,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             mBluetoothAdapter.disable();
-                            System.exit(0);
                             finish();
+                            System.exit(0);
                         }
                     });
 

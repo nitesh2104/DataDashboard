@@ -232,8 +232,6 @@ public class CombinedAnalytics extends AppCompatActivity implements
     {
         if ((keyCode == KeyEvent.KEYCODE_BACK)){
             finish();
-            Intent intent = new Intent(getApplicationContext(), Navigation_Drawer.class);
-            startActivity(intent);
         }
         return super.onKeyDown(keyCode, event);
     }

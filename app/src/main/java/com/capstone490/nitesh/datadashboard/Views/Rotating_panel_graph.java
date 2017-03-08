@@ -76,8 +76,6 @@ public class Rotating_panel_graph extends AppCompatActivity {
     {
         if ((keyCode == KeyEvent.KEYCODE_BACK)){
             finish();
-            Intent intent = new Intent(getApplicationContext(), Navigation_Drawer.class);
-            startActivity(intent);
         }
         return super.onKeyDown(keyCode, event);
     }

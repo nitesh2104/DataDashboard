@@ -49,7 +49,8 @@ public class GraphActivity extends AppCompatActivity {
         ArrayList<Entry> YAxisCos = new ArrayList<>();
 
         double x = 0;
-        for (int i = 0; i < 1000; i++) {
+        int TOTAL_POINTS = 1000;
+        for (int i = 0; i < TOTAL_POINTS; i++) {
             float rotating_panel_data = (float) (Math.random()*75);
             float fixed_panel_data = (float) (Math.random()*60);
             x = x + 10;
@@ -77,13 +78,13 @@ public class GraphActivity extends AppCompatActivity {
 
         linechart.setData(new LineData(XAxes, linedatasets));
         linechart.setVisibleXRange(1,10);
+        linechart.setVisibleXRangeMaximum(TOTAL_POINTS);
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
         if ((keyCode == KeyEvent.KEYCODE_BACK)){
-            Intent intent = new Intent(getApplicationContext(), Navigation_Drawer.class);
-            startActivity(intent);
+            finish();
         }
         return super.onKeyDown(keyCode, event);
     }
