@@ -31,10 +31,9 @@ import Models.StorePowerData;
  * status bar and navigation/system bar) with user interaction.
  */
 public class Create_user extends AppCompatActivity {
-    private AutoCompleteTextView username;
+    private EditText username;
     private EditText new_password;
     private EditText confirm_password;
-    private SQLiteDatabase database;
     private StorePowerData store_user;
 
     @Override
@@ -45,7 +44,7 @@ public class Create_user extends AppCompatActivity {
     }
     public void createNewUser(){
         store_user = new StorePowerData(this);
-        username = (AutoCompleteTextView) findViewById(R.id.new_username);
+        username = (EditText) findViewById(R.id.new_username);
         new_password = (EditText) findViewById(R.id.new_password);
         confirm_password = (EditText) findViewById(R.id.confirm_password);
         Button create_user = (Button) findViewById(R.id.create_new_user);

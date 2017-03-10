@@ -1,7 +1,11 @@
 package com.capstone490.nitesh.datadashboard.Views;
 
+import android.bluetooth.BluetoothAdapter;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -27,11 +31,14 @@ import com.capstone490.nitesh.datadashboard.R;
 public class Navigation_Drawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_navigation__drawer);
+        this.registerReceiver(mReceiver, new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,14 +52,6 @@ public class Navigation_Drawer extends AppCompatActivity
 
         TextView welcome_element = (TextView) findViewById(R.id.welcome_user);
         welcome_element.setText("Welcome "+ getIntent().getExtras().getString("Username") + "!");
-
-        FloatingActionButton button = (FloatingActionButton) findViewById(R.id.logout_floating_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawer.openDrawer(Gravity.LEFT);
-            }
-        });
         }
 
     @Override
@@ -108,15 +107,27 @@ public class Navigation_Drawer extends AppCompatActivity
             Intent intent = new Intent(Navigation_Drawer.this, CombinedAnalytics.class);
             startActivity(intent);
         } else if (id == R.id.user_profile) {
-            Toast.makeText(getApplicationContext(),"User Profile", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Navigation_Drawer.this, UserProfile.class);
-            startActivity(intent);
+//            Toast.makeText(getApplicationContext(),"User Profile", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(Navigation_Drawer.this, UserProfile.class);
+//            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(BluetoothAdapter.ACTION_STATE_CHANGED)) {
+                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableBtIntent, 1);
+            }
+        }
+    };
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)

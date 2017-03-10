@@ -15,18 +15,11 @@
         app:srcCompat="@mipmap/dashboard" />
 
     <TextView
+        android:id="@+id/navigation_header_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:layout_marginLeft="10dp"
         android:text="Welcome!"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="DataDashboard" />
-
 </LinearLayout>

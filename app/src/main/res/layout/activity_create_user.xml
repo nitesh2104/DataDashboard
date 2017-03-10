@@ -12,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@android:color/black">
+        android:background="@drawable/background3">
 
 
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/new_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,8 +24,9 @@
             android:maxLines="1"
             android:textColor="@android:color/white"
             android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:textColorHint="@android:color/white"/>
+            android:layout_marginTop="70dp"
+            android:textColorHint="@android:color/white"
+            android:background="@drawable/shape"/>
 
 
 
@@ -41,7 +42,8 @@
             android:textColorHint="@android:color/white"
             android:textColor="@android:color/white"
             android:maxLines="1"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape"/>
 
 
         <EditText
@@ -56,7 +58,8 @@
             android:textColorHint="@android:color/white"
             android:textColor="@android:color/white"
             android:maxLines="1"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape"/>
 
         <Button
             android:id="@+id/create_new_user"
@@ -65,10 +68,10 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:text="@string/register_user"
-            android:background="@android:color/holo_blue_light"
             android:shadowRadius="@android:integer/config_longAnimTime"
             android:textStyle="bold"
-            android:layout_marginTop="60dp"/>
+            android:layout_marginTop="60dp"
+            android:background="@drawable/shape_login"/>
 
 
     </LinearLayout>

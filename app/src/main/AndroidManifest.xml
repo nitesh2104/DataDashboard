@@ -42,8 +42,7 @@
             android:name=".Views.Create_user"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_create_user"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Views.SettingsActivity"
             android:label="@string/title_activity_settings"
