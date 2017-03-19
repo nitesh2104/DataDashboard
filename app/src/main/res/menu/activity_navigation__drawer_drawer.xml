@@ -9,21 +9,21 @@
 
         <item
             android:id="@+id/rotating_panel_graph"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_send"
             android:title="Rotating Panel Graph" />
 
         <item
             android:id="@+id/fixed_panel_graph"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_send"
             android:title="Fixed Panel Graph" />
         <item
             android:id="@+id/data_analytics"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_manage"
             android:title="Analytics" />
 
         <item
             android:id="@+id/user_profile"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_share"
             android:title="User Profile" />
     </group>
 

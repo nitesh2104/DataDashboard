@@ -67,9 +67,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     private static final int REQUEST_READ_CONTACTS = 0;
     private final static int REQUEST_ENABLE_BT = 1;
-    private ListView listView;
-    private ArrayList<String> mDeviceList = new ArrayList<>();
     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    BluetoothDevice mmDevice;
+    Bluetooth_connector connector;
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -93,6 +93,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         }
         else if (mBluetoothAdapter.isEnabled()){
+            Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+            if(pairedDevices.size() > 0)
+            {
+                for(BluetoothDevice device : pairedDevices)
+                {
+                    if(device.getName().equals("BRAVEN BRV-X")){
+                        mmDevice = device;
+                        break;
+                    }
+                    else{
+                        Toast.makeText(this, "Not Found", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
             setupactivity();
         }
         else {

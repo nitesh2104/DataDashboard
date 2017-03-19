@@ -107,9 +107,10 @@ public class Navigation_Drawer extends AppCompatActivity
             Intent intent = new Intent(Navigation_Drawer.this, CombinedAnalytics.class);
             startActivity(intent);
         } else if (id == R.id.user_profile) {
-//            Toast.makeText(getApplicationContext(),"User Profile", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(Navigation_Drawer.this, UserProfile.class);
-//            startActivity(intent);
+            Toast.makeText(getApplicationContext(),"User Profile", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Navigation_Drawer.this, UserProfile.class);
+            intent.putExtra("Username",getIntent().getExtras().getString("Username"));
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

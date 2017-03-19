@@ -10,20 +10,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 
 import com.capstone490.nitesh.datadashboard.R;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
 public class UserProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_user_profile);
+        TextView username = (TextView) findViewById(R.id.existing_username);
+        username.setText("Username: " + getIntent().getExtras().getString("Username"));
+        TextView rotating_power = (TextView) findViewById(R.id.total_power_rotational);
+        rotating_power.setText("Total Power Rotating Panel: " +"1050 "+"Watts");
+        TextView fixed_power = (TextView) findViewById(R.id.total_power_fixed);
+        fixed_power.setText("Total Power Fixed Panel: 659 " +"Watts");
     }
 
     @Override
@@ -32,8 +33,6 @@ public class UserProfile extends AppCompatActivity {
         if ((keyCode == KeyEvent.KEYCODE_BACK))
         {
             finish();
-            Intent intent = new Intent(UserProfile.this, LoginActivity.class);
-            startActivity(intent);
         }
         return super.onKeyDown(keyCode, event);
     }

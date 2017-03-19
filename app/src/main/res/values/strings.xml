@@ -22,7 +22,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="power_graph">Power Graph</string>
-    <string name="register_user">Register</string>
+    <string name="register_user">No Account Yet? Register now</string>
 
     <string name="title_activity_create_user">create_user</string>
     <string name="dummy_button">Dummy Button</string>
@@ -108,4 +108,5 @@
     <string name="title_activity_user_profile">UserProfile</string>
 
     <string name="title_activity_combined_analytics">CombinedAnalytics</string>
+    <string name="textview">TextView</string>
 </resources>
