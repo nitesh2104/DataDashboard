@@ -24,9 +24,10 @@ Controller : res/layout
 
 ```
 
-### User Manual
-1. Login Page
-![alt text](https://github.com/nitesh2104/DataDashboard/blob/master/Screenshots-DataDashboard/Login.png)
+## User Manual
+###1. Login Page
+
+![Login](https://github.com/nitesh2104/DataDashboard/blob/master/Screenshots-DataDashboard/Login.png)
 
 ### Support or Contact
 
