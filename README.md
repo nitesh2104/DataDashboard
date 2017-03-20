@@ -56,4 +56,4 @@ Controller : res/layout
 
 ### Support or Contact
 
-For further help regarding the setup, please check out our [documentation](https://github.com/nitesh2104/DataDashboard/tree/master/Documentation) or [contact support](nitesharora21@gmail.com).
+For further help regarding the setup, please check out our [documentation](https://github.com/nitesh2104/DataDashboard/tree/master/Documentation) or [contact support](https://nitesharora21@gmail.com).
