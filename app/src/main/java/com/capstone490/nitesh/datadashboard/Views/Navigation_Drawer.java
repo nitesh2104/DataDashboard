@@ -1,6 +1,8 @@
 package com.capstone490.nitesh.datadashboard.Views;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -31,8 +33,9 @@ import com.capstone490.nitesh.datadashboard.R;
 public class Navigation_Drawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-//    BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
+    BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
     private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
+    private static final int REQUEST_DISCOVERABLE_DEVICE_SECURE = 2;
 
 
     @Override
@@ -59,11 +62,36 @@ public class Navigation_Drawer extends AppCompatActivity
         bluetooth_scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent serverIntent = new Intent(Navigation_Drawer.this, MainActivity.class);
-                startActivityForResult(serverIntent,REQUEST_CONNECT_DEVICE_SECURE);
+                if (btAdapter.getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
+                    Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+                    discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
+                    startActivityForResult(discoverableIntent,REQUEST_DISCOVERABLE_DEVICE_SECURE);
+                }
+                else {
+                    Intent serverIntent = new Intent(Navigation_Drawer.this, MainActivity.class);
+                    startActivityForResult(serverIntent,REQUEST_CONNECT_DEVICE_SECURE);
+                }
             }
         });
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_CONNECT_DEVICE_SECURE:
+                // When DeviceListActivity returns with a device to connect
+                if (resultCode == Activity.RESULT_OK) {
+                    connectDevice(data, true);
+                }
+                break;
+        }
+    }
 
+    private void connectDevice(Intent data, boolean secure) {
+        // Get the device MAC address
+        String address = data.getExtras()
+                .getString(MainActivity.EXTRA_DEVICE_ADDRESS);
+        // Get the BluetoothDevice object
+        BluetoothDevice device = btAdapter.getRemoteDevice(address);
+        // TODO: Setup Connections
     }
 
     @Override
