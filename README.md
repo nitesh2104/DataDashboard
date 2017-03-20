@@ -26,25 +26,33 @@ Controller : res/layout
 
 ## User Manual
 1. Login Page
+
 ![Login](https://github.com/nitesh2104/DataDashboard/blob/master/Screenshots-DataDashboard/Login.png)
 
 2. Create User
+
 ![CreateUser](https://github.com/nitesh2104/DataDashboard/blob/master/Screenshots-DataDashboard/CreateUser.png)
 
 3. Main Page
+
 ![MainPage](https://github.com/nitesh2104/DataDashboard/blob/master/Screenshots-DataDashboard/Welcome.png)
 
 4. Combined Graphs
+
 ![CombinedGraph](https://github.com/nitesh2104/DataDashboard/blob/master/Screenshots-DataDashboard/CombinedGraph.png)
 
 5. Rotating Panel Graph
+
 ![RotatingPanelGraph](https://github.com/nitesh2104/DataDashboard/blob/master/Screenshots-DataDashboard/RotatingPanelGraph.png)
 
 6. Fixed Panel Graph
+
 ![FixedPanelGraph](https://github.com/nitesh2104/DataDashboard/blob/master/Screenshots-DataDashboard/FixedPanelGraph.png)
 
 7. User Profile
+
 ![UserProfile](https://github.com/nitesh2104/DataDashboard/blob/master/Screenshots-DataDashboard/UserProfile.png)
+
 
 ### Support or Contact
 
