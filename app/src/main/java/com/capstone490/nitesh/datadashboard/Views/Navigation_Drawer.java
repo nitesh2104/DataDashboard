@@ -31,7 +31,9 @@ import com.capstone490.nitesh.datadashboard.R;
 public class Navigation_Drawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
+//    BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
+    private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +54,17 @@ public class Navigation_Drawer extends AppCompatActivity
 
         TextView welcome_element = (TextView) findViewById(R.id.welcome_user);
         welcome_element.setText("Welcome "+ getIntent().getExtras().getString("Username") + "!");
-        }
+
+        Button bluetooth_scan = (Button) findViewById(R.id.bluetooth_scan);
+        bluetooth_scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent serverIntent = new Intent(Navigation_Drawer.this, MainActivity.class);
+                startActivityForResult(serverIntent,REQUEST_CONNECT_DEVICE_SECURE);
+            }
+        });
+
+    }
 
     @Override
     public void onBackPressed() {
@@ -144,7 +156,6 @@ public class Navigation_Drawer extends AppCompatActivity
                         public void onClick(DialogInterface dialog, int id) {
                             finish();
                             Intent intent = new Intent(Navigation_Drawer.this, LoginActivity.class);
-//                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                         }
                     });

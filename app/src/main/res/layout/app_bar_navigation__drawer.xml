@@ -17,7 +17,14 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.NoActionBar" />
+            app:popupTheme="@style/AppTheme.NoActionBar">
+        <Button
+            android:id="@+id/bluetooth_scan"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="200dp"
+            android:background="@drawable/ic_action_device_access_bluetooth_searching"/>
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 

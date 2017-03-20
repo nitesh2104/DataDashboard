@@ -69,7 +69,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private final static int REQUEST_ENABLE_BT = 1;
     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     BluetoothDevice mmDevice;
-    Bluetooth_connector connector;
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -267,7 +266,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             startActivity(intent);
         }
     }
-
     private boolean isEmailValid(String email) {
         StorePowerData store_user = new StorePowerData(this);
         SQLiteDatabase check_user = store_user.getReadableDatabase();
