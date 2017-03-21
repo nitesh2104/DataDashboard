@@ -32,7 +32,6 @@
         <activity
             android:name=".Views.Navigation_Drawer"
             android:label="@string/title_activity_navigation__drawer"
-            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".Views.Create_user"
@@ -47,6 +46,7 @@
         <activity android:name=".Views.GraphActivity"
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_combined_panel_graph"
             android:theme="@style/FullscreenTheme"/>
         <activity
             android:name=".Views.Rotating_panel_graph"
